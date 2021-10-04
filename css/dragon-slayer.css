@@ -1,0 +1,201 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+  min-height : 100vh;
+  margin : 0;
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-attachment : fixed;
+  background-repeat: no-repeat;
+  font-family: 'Germania One', cursive;
+  font-size: 2.5vw;
+  line-height : 1.4;
+}
+
+img {
+  max-width: 100%;
+  height : auto;
+}
+
+figure {
+  margin : 0;
+}
+
+header {
+  position : fixed;
+  top : 1rem;
+  left : 2.5rem; right : 2.5rem;
+  z-index : 100;
+  font-size : 1.1vmax;
+}
+
+header * {
+  margin : 0;
+}
+
+h1 {
+  font-size: 3vmax;
+}
+
+h2, h3 {
+  margin : 0;
+  text-align: center;
+}
+h2 {
+  font-size: 3.5vw;
+}
+
+h3 {
+  margin : 1em 5% 0;
+  padding-top : 1rem;
+  border-top : 2px dotted black;
+  font-size: 5vw;
+}
+
+main {
+  position : relative;
+  max-width : 1200px;
+  margin-right : auto;
+  margin-left : auto;
+}
+
+main:before {
+  content : '';
+  display : block;
+  position : absolute;
+  z-index : 1000;
+  top : calc( 3rem + ( 4.1vmax * 1.4 ) - 5vw);
+  left : 50%;
+  margin-left : -5vw;
+  width : 10vw;height:10vw;
+  background: url(../images/shield.png) no-repeat center top;
+  background-size : auto 10vw;
+  background-position: center top;
+}
+
+.game{
+  position : absolute;
+  z-index : 50;
+  top : calc( 3rem + ( 4.1vmax * 1.4 ) );
+  left : 2.5rem; right : 2.5rem;
+  height : 80vh;
+  overflow-y : auto;
+  padding-top : 5vw;
+  padding-left : 5%;
+  padding-right : 5%;
+  background: rgba(255,255,255,0.6);
+  border-radius: 1rem;
+}
+
+
+.game-state, .game-round   {
+  display : flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-round {
+  align-items: center;
+}
+
+.game-state > *, .game-round > * {
+  flex : 1;
+}
+
+.game-state_player {
+  text-align: center;
+}
+
+.game-state_player figcaption {
+  position : relative;
+  line-height : 1;
+}
+
+.game-state_player progress {
+  position : absolute;
+  width : 15vmax;
+  z-index : -1;
+  left : 50%; right : 0;
+  margin-left : -7.5vmax;
+  top : 0;
+}
+
+
+.game-state_player > img {
+  width : 15vmax;
+}
+
+.game-round img {
+  width : 40%;
+  margin : 0 2%;
+}
+
+.game-state:before {
+  content : 'Etat des joueurs';
+  display: block;
+  flex-basis : 100%;
+  margin-top : 2rem;
+  text-align: center;
+}
+
+.game-round img[alt^='Chevalier'] {
+  order : 0;
+}
+
+.game-round img[alt^='Dragon'] {
+  order : 1;
+}
+
+.game-round img[alt^='Dragon'] + figcaption {
+  text-align: right;
+}
+
+footer {
+  text-align: center;
+}
+
+/* Animated clouds */
+.cloud {
+    position: fixed;
+    z-index:10;
+    opacity: 0.8;
+    animation: cloudPassingBy linear infinite;
+}
+
+#cloud1 {
+    top:2vw;
+    left:-20vw;
+    width: 20%;
+    animation-duration: 50s;
+}
+
+#cloud2 {
+    top:10vw;
+    left:-20vw;
+    width: 20%;
+    animation-duration: 30s;
+}
+
+@keyframes cloudPassingBy {
+    from { transform: translateX(0px); }
+    to { transform: translateX(600%); }
+}
+
+/* BONUS */
+progress {
+  background-color: #b6b6b6;
+  box-shadow: 0 0 0 3px #b6b6b6;
+}
+
+progress::-webkit-progress-value {
+	background-color: #ec4037;
+}
+progress::-moz-progress-bar {
+	background-color: #ec4037;
+}
